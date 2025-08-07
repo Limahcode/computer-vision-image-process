@@ -128,9 +128,9 @@ uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.success("✅ Image uploaded successfully!")
+    st.success(" Image uploaded successfully!")
 else:
-    st.info("⚠️ No image uploaded. Using default sample image.")
+    st.info(" No image uploaded. Using default sample image.")
     image = Image.open("sample.jpg")  # Make sure this file is in the same folder
 
 # Convert to NumPy format (for OpenCV)
@@ -141,7 +141,7 @@ st.subheader("Original Image")
 st.image(image, use_container_width=True)
 
 # --- Technique Selection ---
-st.subheader("🛠️ Choose Image Processing Technique")
+st.subheader(" Choose Image Processing Technique")
 technique = st.selectbox("Select a technique:", [
     "None",
     "Thresholding",
@@ -224,7 +224,7 @@ elif technique == "Color Space Transformation":
         processed_img = cv2.cvtColor(processed_img, cv2.COLOR_BGR2YCrCb)
 
 # --- Show Processed Image ---
-st.subheader("🔍 Processed Image")
+st.subheader(" Processed Image")
 result_rgb = cv2.cvtColor(processed_img, cv2.COLOR_BGR2RGB)
 st.image(result_rgb, use_container_width=True)
 
